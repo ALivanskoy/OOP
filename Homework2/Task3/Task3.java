@@ -4,28 +4,42 @@
 // 3 Расширение файла:
 // 4 Расширение файла: jpg
 
+//Мне кажется, я очень сильно перемудрил, но более изящное решение не придумал
+//Первая проблема заключалась в том, что я так и не понял как взять путь к папке проекта автоматически
+//Вторая проблема заключалась в том, что нет понимания как напрямую ковыряться в массиве строк, без
+// преобразования их в StringBuilder
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.io.*;
-import java.util.*;
-// import java.util.Collectio;
+
 
 public class Task3 {
 
     public static void main(String[] args) throws IOException {
         try {
-
+            // Сюда нужно вписать путь к проверяемой папке:
             String pathProject = "C://Users//User//VSCodeProjects//Java//Homework//Homework2//Task3";
-
+            // Получаем лист типов данных "File"
             List<File> fileList = getFileList(pathProject);
+            // Переводим лист типов данных "File" в массив строк
+            String[] fileArray = getStringArrayFromList(fileList);
+            // Переводим массив строк в массив StrindBuilder,
+            // затем из него получаем массив расширений файлов
+            String[] extensionArray = getExtensionArray(arrayStringToArrayStringBuilder(fileArray));
+            // Печатаем результат
+            System.out.print("\nСписок расширений файлов в папке ''" + pathProject + "'' :\n");
+            printStringArray(extensionArray);
 
-            System.out.println(fileList);
-
-            // System.out.println(getExtension(fileList));
         } finally {
-            System.out.println("Тут могла бы быть Ваша реклама");
+            System.out.println("\nТут могла бы быть Ваша реклама\n");
+        }
+    }
+
+    private static void printStringArray(String[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
         }
     }
 
@@ -38,17 +52,41 @@ public class Task3 {
             return fileList;
 
         } finally {
-            // return null;
         }
     }
+
+    private static String[] getStringArrayFromList(List<File> fileList) {
+
+        String[] array = new String[fileList.size()];
+
+        for (int i = 0; i < fileList.size(); i++) {
+            array[i] = fileList.get(i).toString();
+        }
+        return array;
+    }
+
+    private static StringBuilder[] arrayStringToArrayStringBuilder(String[] array) {
+
+        StringBuilder[] sbArray = new StringBuilder[array.length];
+        for (int i = 0; i < array.length; i++) {
+            sbArray[i] = new StringBuilder(array[i].subSequence(0, array[i].length()));
+        }
+
+        return sbArray;
+
+    }
+
+    private static String[] getExtensionArray(StringBuilder[] array) {
+
+        String[] strArray = new String[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+
+            strArray[i] = array[i].subSequence(array[i].indexOf(".") + 1, array[i].length()).toString();
+        }
+
+        return strArray;
+
+    }
+
 }
-
-// private static List<String> getExtension(List<File> fileList) {
-
-// List<String> extension = fileList;
-
-// for (int i = 0; i < fileList.size(); i++) {
-// extension.add(fileList.get(i).list());
-// }
-// return extension;
-// }
