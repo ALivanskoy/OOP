@@ -8,15 +8,21 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.io.*;
+import java.util.*;
 // import java.util.Collectio;
 
 public class Task3 {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         try {
+
             String pathProject = "C://Users//User//VSCodeProjects//Java//Homework//Homework2//Task3";
+
             List<File> fileList = getFileList(pathProject);
+
             System.out.println(fileList);
+
             // System.out.println(getExtension(fileList));
         } finally {
             System.out.println("Тут могла бы быть Ваша реклама");
@@ -35,15 +41,14 @@ public class Task3 {
             // return null;
         }
     }
-
-    // private static List<String> getExtension(List<File> fileList) {
-
-    //     List<String> extension = fileList;
-
-    //     for (int i = 0; i < fileList.size(); i++) {
-    //         extension.add(fileList.get(i).list());
-    //     }
-    //     return extension;
-    }
-
 }
+
+// private static List<String> getExtension(List<File> fileList) {
+
+// List<String> extension = fileList;
+
+// for (int i = 0; i < fileList.size(); i++) {
+// extension.add(fileList.get(i).list());
+// }
+// return extension;
+// }
