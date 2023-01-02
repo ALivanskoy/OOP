@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -28,5 +29,14 @@ public class App {
         }
 
         System.out.println();
+
+        System.out.println("Подзадача 3:");
+
+        Iterator groupeReverseIterator = studentGroupe.iterator();
+
+        while (groupeReverseIterator.hasNext()) {
+            System.out.println(groupeReverseIterator.next());
+        }
+
     }
 }
