@@ -23,7 +23,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student " + firstName + " " + secondName + ", age = " + age;
+        return "\nСтудент " + firstName + " " + secondName + ", возраст = " + age;
     }
 
 }

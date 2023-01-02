@@ -62,7 +62,8 @@ public class GroupListIterator implements ListIterator<Student> {
 
     @Override
     public void set(Student e) {
-
+        remove();
+        add(e);
     }
 
 }

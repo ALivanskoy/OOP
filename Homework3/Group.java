@@ -1,4 +1,6 @@
+
 import java.util.List;
+import java.util.ListIterator;
 
 public class Group {
 
@@ -10,7 +12,7 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group students = " + students;
+        return "Группа: " + students;
     }
 
     public int size() {
@@ -29,6 +31,10 @@ public class Group {
     public void add(int index, Student e) {
         students.add(index, e);
 
+    }
+
+    public ListIterator<Student> listIterator() {
+        return new GroupListIterator(this);
     }
 
 }
