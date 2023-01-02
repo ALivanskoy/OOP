@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,12 +8,12 @@ public class App {
 
     public static void main(String[] args) {
 
-        List<Student> studentsList = new LinkedList();
-        studentsList.add(new Student("Василий", "Петров", 25));
-        studentsList.add(new Student("Николай", "Васильев", 22));
-        studentsList.add(new Student("Пётр", "Николаев", 28));
 
-        Group studentGroupe = new Group(studentsList);
+        Group studentGroupe = new Group(Arrays.asList(
+            new Student("Василий", "Петров", 25),
+            new Student("Николай", "Васильев", 22),
+            new Student("Пётр", "Николаев", 28)
+        ));
 
         System.out.println("Подзадача 1:");
 

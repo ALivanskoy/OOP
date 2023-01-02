@@ -39,7 +39,7 @@ public class Group implements Iterable {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<Student> iterator() {
         return new ReverseIterator(this);
     }
 
