@@ -3,8 +3,8 @@ package Model;
 
 public class Student {
 
-    protected String firstName;
-    protected String secondName;
+    private String firstName;
+    private String secondName;
     private int attendancePercentage;
 
     public Student(String firstName, String secondName) {

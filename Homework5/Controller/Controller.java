@@ -10,25 +10,20 @@ import Model.*;
 
 public class Controller {
 
-    AttendanceService attendanceService;
-
-    public Controller(AttendanceService attendanceService) {
-        this.attendanceService = attendanceService;
-        calculatePercentage();
-    }
-
-    public void calculatePercentage() {
+    public void calculatePercentage(AttendanceService attendanceService) {
 
         Journal groupeJournal = attendanceService.getGroupeJournal();
         LinkedHashMap<Student, Journal> attendanceJournal = attendanceService.getAttendanceJournal();
         StudentGroupe studentGroupe = attendanceService.getStudentGroupe();
 
         for (Student student : studentGroupe) {
-            student.setAttendancePercentage(attendanceJournal.get(student).size() / groupeJournal.size());
+            int percent = (int) (((double) attendanceJournal.get(student).size() / (double) (groupeJournal.size()))
+                    * 100);
+            student.setAttendancePercentage(percent);
         }
     }
 
-    public List<Student> groupeAttendanceSort() {
+    public List<Student> groupeAttendanceSort(AttendanceService attendanceService) {
 
         Set<Student> sortedSet = new TreeSet<Student>(new StudentComparator());
         sortedSet.addAll(attendanceService.getStudentGroupe().getStudentGroupe());
@@ -37,7 +32,7 @@ public class Controller {
 
     }
 
-    public List<Student> sortBiggerThan(int percent) {
+    public List<Student> sortBiggerThan(AttendanceService attendanceService, int percent) {
 
         List<Student> sortedList = new LinkedList<>();
 

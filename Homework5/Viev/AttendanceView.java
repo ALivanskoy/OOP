@@ -12,7 +12,7 @@ public class AttendanceView {
     public void printAttendance(AttendanceService attendanceService) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Student, Journal> note : attendanceService.getAttendanceJournal().entrySet()) {
-            sb.append("Студент ").append(note.getKey()).append("посетил следующие уроки:\n")
+            sb.append("Студент ").append(note.getKey()).append(" посетил следующие уроки:\n")
                     .append(note.getValue().toString())
                     .append("\n");
 
@@ -22,9 +22,12 @@ public class AttendanceView {
 
     public void printAttendancePercentage(AttendanceService attendanceService) {
 
+        System.out.println("Посещаемость:");
+
         for (Student student : attendanceService.getStudentGroupe()) {
 
-            System.out.printf("Студент %s\t Посещаемость:%d %\n", student, student.getAttendancePercentage());
+            System.out.println(student.toString() + " : " +
+                    student.getAttendancePercentage() + "%");
 
         }
 
@@ -32,13 +35,13 @@ public class AttendanceView {
 
     public void printBiggestAttendance(List<Student> students) {
 
-        System.out.println("Сортировка в порядке посещаемости: " + students);
+        System.out.println("Студенты, отсортированные в порядке наименьшей посещаемости: " + students);
 
     }
 
     public void printAttendanceMoreThat(List<Student> students, int percent) {
 
-        System.out.printf("Студенты с посещаемостью больше %d: %s", percent, students.toString());
+        System.out.println("Студенты с посещаемостью больше "+percent+"% : "+students.toString());
 
     }
 
