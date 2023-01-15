@@ -52,7 +52,7 @@ public class App {
 
             System.out.println("Неотфильтрованный список:\n" + list);
 
-            Filter<List<Integer>> filterIsEven = new Filter<>(list, filtredList, new IsEven());
+            Filter<List<Integer>, Integer> filterIsEven = new Filter<>(list, filtredList, new IsEven());
             filterIsEven.filter();
             System.out.println("Отфильтрованный список:\n" + filtredList);
         }
