@@ -3,8 +3,14 @@ package Model.ContactList;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.TreeSet;
-import Model.AgentType.*;
-import Model.Contacts.*;
+import Model.AgentType.Agent;
+import Model.AgentType.Company;
+import Model.AgentType.Person;
+import Model.Contacts.InternetContacts.EmailContact;
+import Model.Contacts.InternetContacts.TelegramContact;
+import Model.Contacts.InternetContacts.TelephoneContact;
+import Model.Contacts.InternetContacts.VkContact;
+import Model.Contacts.NotInternetContacts.AddressContact;
 
 public class ContactList implements Iterable<Agent> {
 
