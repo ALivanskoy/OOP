@@ -14,7 +14,7 @@ public class TelegramContact extends InternetContact {
 
     @Override
     public String toString() {
-        return String.format("Telegram: [%s]\n", super.getContact());
+        return String.format("Telegram: [%s]", super.getContact());
     }
 
     @Override

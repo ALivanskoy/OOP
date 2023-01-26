@@ -14,7 +14,7 @@ public class EmailContact extends InternetContact {
 
     @Override
     public String toString() {
-        return String.format("E-mail: [%s]\n", super.getContact());
+        return String.format("E-mail: [%s]", super.getContact());
     }
 
     @Override

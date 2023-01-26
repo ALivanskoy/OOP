@@ -2,7 +2,9 @@ package Model.Contacts.NotInternetContacts;
 
 import java.util.Random;
 
-public class AddressContact {
+import Model.Contacts.Contact;
+
+public class AddressContact implements Contact {
 
     private String city;
     private String street;

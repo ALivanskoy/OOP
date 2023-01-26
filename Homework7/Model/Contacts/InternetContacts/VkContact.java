@@ -14,7 +14,7 @@ public class VkContact extends InternetContact {
 
     @Override
     public String toString() {
-        return String.format("VK: [%s]\n", super.getContact());
+        return String.format("VK: [%s]", super.getContact());
     }
 
     @Override

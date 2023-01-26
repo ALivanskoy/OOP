@@ -14,7 +14,7 @@ public class TelephoneContact extends InternetContact {
 
     @Override
     public String toString() {
-        return String.format("Telephone: [%s]\n", super.getContact());
+        return String.format("Telephone: [%s]", super.getContact());
     }
 
     @Override

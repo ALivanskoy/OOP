@@ -1,16 +1,22 @@
 package Presenter;
 
 import Model.AgentType.Agent;
-import Model.AgentType.Person;
+import Model.ContactList.ContactList;
+import Model.Contacts.Contact;
 
 public class App {
 
     public static void main(String[] args) {
 
-        for (int i = 0; i < 100; i++) {
-            Agent agent = new Person();
-            System.out.println(agent+" "+agent.getId());
+        ContactList cl = new ContactList();
 
+        for (Agent agent : cl) {
+            System.out.println(agent.getId());
+            System.out.println(agent.toString());
+            for (Contact contact : agent) {
+                System.out.println(contact);
+            }
+            System.out.println();
         }
 
     }
