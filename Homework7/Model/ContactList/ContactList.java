@@ -73,11 +73,16 @@ public class ContactList implements Iterable<Agent> {
         this.agentList.remove(agent);
     }
 
+    public void remove(Integer id) {
+
+        this.agentList.remove(findAgent(id));
+    }
+
     public ContactList findAgent(String arg) {
 
-        ContactList filtredContactList = new ContactList();
+        ContactList filtredContactList = new ContactList(new TreeSet());
 
-        for (Agent agent : filtredContactList) {
+        for (Agent agent : this.agentList) {
 
             if (agent.toString().contains(arg))
                 filtredContactList.add(agent);
@@ -86,6 +91,15 @@ public class ContactList implements Iterable<Agent> {
 
         return filtredContactList;
 
+    }
+
+    public Agent findAgent(Integer id) {
+
+        for (Agent agent : this.agentList) {
+            if (agent.getId() == id)
+                return agent;
+        }
+        return findAgent(0);
     }
 
     @Override
