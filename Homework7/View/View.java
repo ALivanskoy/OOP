@@ -20,7 +20,8 @@ public class View {
         System.out.println("3. Найти контрагента по названию");
         System.out.println("4. Добавить контрагента");
         System.out.println("5. Удалить контрагента");
-        System.out.println("6. Меню контрагента");
+        System.out.println("6. Просмотр контрагента");
+        System.out.println("7. Выход");
         System.out.println("*******************************************");
     }
 
